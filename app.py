@@ -4,15 +4,15 @@ from flask_heroku import Heroku
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nqpqebygxccwgj:e1f676d2f00ba3386f917e2b60e63aaf19647ee63a20c61b8c0c7b5bebb2f5c2@ec2-54-243-61-194.compute-1.amazonaws.com:5432/d3jhfsi8plt595'
-heroku = HEROKU(app)
+heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 
 
 class User(db.Model):
     __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=TRUE)
-    email = db.Column(db.String(120), unique=TRUE)
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True)
 
     def __init__(self, email):
         self.email = email
